@@ -1,6 +1,6 @@
 <script setup>
 const { $swal } = useNuxtApp();
-
+const router = useRouter()
 // 表單格式
 const userLoginObject = ref({
   email: "",
@@ -34,6 +34,7 @@ const loginAccount = async (userLoginObject) => {
       showConfirmButton: false,
       timer: 1500,
     });
+    await router.push('/order')
   } catch (err) {
     // console.log(err.response);
     const { message } = err.response._data;
